@@ -135,6 +135,11 @@ func TestTypeFromPURL(t *testing.T) {
 			purl:     "pkg:generic/conda@1.2.3",
 			expected: CondaPkg,
 		},
+		{
+			name:     "docker",
+			purl:     "pkg:docker/library/nginx@1.19.6",
+			expected: DockerPkg,
+		},
 	}
 
 	var pkgTypes = strset.New()

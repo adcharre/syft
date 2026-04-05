@@ -23,6 +23,7 @@ const (
 	CondaPkg                Type = "conda"
 	DartPubPkg              Type = "dart-pub"
 	DebPkg                  Type = "deb"
+	DockerPkg               Type = "docker"
 	DotnetPkg               Type = "dotnet"
 	ErlangOTPPkg            Type = "erlang-otp"
 	GemPkg                  Type = "gem"
@@ -68,6 +69,7 @@ var AllPkgs = []Type{
 	CondaPkg,
 	DartPubPkg,
 	DebPkg,
+	DockerPkg,
 	DotnetPkg,
 	ErlangOTPPkg,
 	GemPkg,
@@ -125,6 +127,8 @@ func (t Type) PackageURLType() string {
 		return "deb"
 	case DotnetPkg:
 		return "dotnet"
+	case DockerPkg:
+		return "docker"
 	case ErlangOTPPkg:
 		return packageurl.TypeOTP
 	case GemPkg:
@@ -264,6 +268,8 @@ func TypeByName(name string) Type {
 		return WordpressPluginPkg
 	case "homebrew":
 		return HomebrewPkg
+	case packageurl.TypeDocker:
+		return DockerPkg
 	default:
 		return UnknownPkg
 	}
